@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python 的 datetime 模块, 十平米">
+    <meta name="keywords" content="leetcode-cn 2.两数相加, 十平米">
     <meta name="description" content="够了，够了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python 的 datetime 模块 | 十平米</title>
+    <title>leetcode-cn 2.两数相加 | 十平米</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-cdn.wcmoon.com/python.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-cdn.wcmoon.com/algorithm.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python 的 datetime 模块</h1>
+                    <h1 class="description center-align post-title">leetcode-cn 2.两数相加</h1>
                 </div>
             </div>
         </div>
@@ -346,12 +346,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
-                            <a href="/tags/date-time/">
-                                <span class="chip bg-color">date-time</span>
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
                             </a>
                         
                     </div>
@@ -362,8 +362,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -375,7 +375,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-29
+                    2020-08-16
                 </div>
                 
 
@@ -399,234 +399,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>开发的时候不可避免会遇到获取时间和处理时间的场景，python 为开发者提供了一个模块叫 datetime，运用这个模块可以很好地处理大部分问题。</p>
-<h3 id="获取当前的日期和时间"><a href="#获取当前的日期和时间" class="headerlink" title="获取当前的日期和时间"></a>获取当前的日期和时间</h3><pre class="line-numbers language-none"><code class="language-none">import datetime
+                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。<br>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。<br>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这道题基本没有什么花里胡哨的解法，直接一遍遍历两个链表，复杂度为O(n)，注意实际编码的时候可以写干净一点</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> l1<span class="token punctuation">:</span> ListNode<span class="token punctuation">,</span> l2<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
+        new_head <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        node <span class="token operator">=</span> new_head
+        carry <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> l1 <span class="token keyword">or</span> l2<span class="token punctuation">:</span>
+            x <span class="token operator">=</span> l1<span class="token punctuation">.</span>val <span class="token keyword">if</span> l1 <span class="token keyword">else</span> <span class="token number">0</span>
+            y <span class="token operator">=</span> l2<span class="token punctuation">.</span>val <span class="token keyword">if</span> l2 <span class="token keyword">else</span> <span class="token number">0</span>
+            val <span class="token operator">=</span> x <span class="token operator">+</span> y <span class="token operator">+</span> carry
+            carry <span class="token operator">=</span> val <span class="token operator">//</span> <span class="token number">10</span>
+            node<span class="token punctuation">.</span><span class="token builtin">next</span> <span class="token operator">=</span> ListNode<span class="token punctuation">(</span>val <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> l1<span class="token punctuation">:</span>
+                l1 <span class="token operator">=</span> l1<span class="token punctuation">.</span><span class="token builtin">next</span>
+            <span class="token keyword">if</span> l2<span class="token punctuation">:</span>
+                l2 <span class="token operator">=</span> l2<span class="token punctuation">.</span><span class="token builtin">next</span>
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span><span class="token builtin">next</span>
+        <span class="token keyword">if</span> carry<span class="token punctuation">:</span>
+            node<span class="token punctuation">.</span><span class="token builtin">next</span> <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> new_head<span class="token punctuation">.</span><span class="token builtin">next</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>本系列博客所有题目出自 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/">https://leetcode-cn.com/</a></p>
 
-now &#x3D; datetime.datetime.now()
-print(now)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行以上代码，在我本机上输出为</p>
-<pre class="line-numbers language-none"><code class="language-none">2019-03-29 15:02:26.404151<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="获取当前的日期"><a href="#获取当前的日期" class="headerlink" title="获取当前的日期"></a>获取当前的日期</h3><pre class="line-numbers language-none"><code class="language-none">import datetime
-
-today &#x3D; datetime.date.today()
-print(today)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行得到结果</p>
-<pre class="line-numbers language-none"><code class="language-none">2019-03-29<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="datatime里有什么"><a href="#datatime里有什么" class="headerlink" title="datatime里有什么"></a>datatime里有什么</h3><p>如果你够细心，应该已经发现，在第一个例子里，我们用的是</p>
-<pre class="line-numbers language-none"><code class="language-none">datetime.datetime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>而在第二个例子里，我们用的是</p>
-<pre class="line-numbers language-none"><code class="language-none">datetime.date<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这里的 <code>datetime</code> 和 <code>date</code> 就是 <code>datetime</code> 这个库的里的两个类。</p>
-<p>所以 <code>datetime</code> 里到底有什么呢，我们可以用 <code>dir</code> 函数来看看</p>
-<pre class="line-numbers language-none"><code class="language-none">import datetime
-
-print(dir(datetime))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>这样可以把 <code>datetime</code> 的所有属性值打印出来</p>
-<pre class="line-numbers language-none"><code class="language-none">[&#39;MAXYEAR&#39;, &#39;MINYEAR&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;date&#39;, &#39;datetime&#39;, &#39;datetime_CAPI&#39;, &#39;time&#39;, &#39;timedelta&#39;, &#39;timezone&#39;, &#39;tzinfo&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>一般来说，我们常用 datetime 这四个类：</p>
-<pre class="line-numbers language-none"><code class="language-none">data
-time
-datetime
-timedelta<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>下面用几个例子看看这几个类</p>
-<h2 id="datetime-date"><a href="#datetime-date" class="headerlink" title="datetime.date"></a>datetime.date</h2><h3 id="用-Date-对象表示日期"><a href="#用-Date-对象表示日期" class="headerlink" title="用 Date 对象表示日期"></a>用 <code>Date</code> 对象表示日期</h3><pre class="line-numbers language-none"><code class="language-none">import datetime
-
-d &#x3D; datetime.date(2019, 4, 13)
-print(d)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>输出</p>
-<pre class="line-numbers language-none"><code class="language-none">2019-04-13<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>上面的 <code>date()</code> 是 <code>date</code> 类的构造函数，这个构造函数传入三个参数：<code>year, month, day</code>。</p>
-<h3 id="获取当前日期"><a href="#获取当前日期" class="headerlink" title="获取当前日期"></a>获取当前日期</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import date
-
-today &#x3D; date.today()
-
-print(&quot;Current date &#x3D;&quot;, today)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里用类里的 today() 函数创建了一个包含当前日期的 <code>data</code> 对象。<br>输出</p>
-<pre class="line-numbers language-none"><code class="language-none">Current date &#x3D; 2019-03-29<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="从-timestamp-里获取日期"><a href="#从-timestamp-里获取日期" class="headerlink" title="从 timestamp 里获取日期"></a>从 <code>timestamp</code> 里获取日期</h3><p><code>timestamp</code> 是从 <code>UTC</code> 时间的1970年1月1号到某个时间的秒数。可以通过 <code>fromtimestamp()</code> 方法把 <code>timestamp</code> 转化为日期。</p>
-<pre class="line-numbers language-none"><code class="language-none">from datetime import date
-
-timestamp &#x3D; date.fromtimestamp(1553853181)
-print(&quot;Date &#x3D;&quot;, timestamp)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>输出</p>
-<pre class="line-numbers language-none"><code class="language-none">Date &#x3D; 2019-03-29<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="datetime-time"><a href="#datetime-time" class="headerlink" title="datetime.time"></a>datetime.time</h2><p>一个 time 类构造出的 time 对象表示了当地的时间</p>
-<h3 id="用-time-对象表示时间"><a href="#用-time-对象表示时间" class="headerlink" title="用 time 对象表示时间"></a>用 time 对象表示时间</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import time
-
-# time(hour &#x3D; 0, minute &#x3D; 0, second &#x3D; 0)
-a &#x3D; time()
-print(&quot;a &#x3D;&quot;, a)
-
-# time(hour, minute and second)
-b &#x3D; time(11, 34, 56)
-print(&quot;b &#x3D;&quot;, b)
-
-# time(hour, minute and second)
-c &#x3D; time(hour &#x3D; 11, minute &#x3D; 34, second &#x3D; 56)
-print(&quot;c &#x3D;&quot;, c)
-
-# time(hour, minute, second, microsecond)
-d &#x3D; time(11, 34, 56, 234566)
-print(&quot;d &#x3D;&quot;, d)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>输出的是</p>
-<pre class="line-numbers language-none"><code class="language-none">a &#x3D; 00:00:00
-b &#x3D; 11:34:56
-c &#x3D; 11:34:56
-d &#x3D; 11:34:56.234566<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印时、分、秒、毫秒</p>
-<pre class="line-numbers language-none"><code class="language-none">from datetime import time
-
-a &#x3D; time(11, 34, 56)
-
-print(&quot;hour &#x3D;&quot;, a.hour)
-print(&quot;minute &#x3D;&quot;, a.minute)
-print(&quot;second &#x3D;&quot;, a.second)
-print(&quot;microsecond &#x3D;&quot;, a.microsecond)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">hour &#x3D; 11
-minute &#x3D; 34
-second &#x3D; 56
-microsecond &#x3D; 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我们并没有初始化秒表信息，它的默认值为0</p>
-<h2 id="datetime-datetime"><a href="#datetime-datetime" class="headerlink" title="datetime.datetime"></a>datetime.datetime</h2><p>这个类包含了 日期 和 时间 的信息</p>
-<h3 id="datetime-对象"><a href="#datetime-对象" class="headerlink" title="datetime 对象"></a>datetime 对象</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import datetime
-
-#datetime(year, month, day)
-a &#x3D; datetime(2018, 11, 28)
-print(a)
-
-# datetime(year, month, day, hour, minute, second, microsecond)
-b &#x3D; datetime(2017, 11, 28, 23, 55, 59, 342380)
-print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">2018-11-28 00:00:00
-2017-11-28 23:55:59.342380<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><code>datetime()</code> 构造函数里的前三个参数 <code>year, month, day</code> 是必须的。</p>
-<h3 id="打印年、月、日、时、分、秒和时间戳"><a href="#打印年、月、日、时、分、秒和时间戳" class="headerlink" title="打印年、月、日、时、分、秒和时间戳"></a>打印年、月、日、时、分、秒和时间戳</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import datetime
-
-a &#x3D; datetime(2017, 11, 28, 23, 55, 59, 342380)
-print(&quot;year &#x3D;&quot;, a.year)
-print(&quot;month &#x3D;&quot;, a.month)
-print(&quot;hour &#x3D;&quot;, a.hour)
-print(&quot;minute &#x3D;&quot;, a.minute)
-print(&quot;timestamp &#x3D;&quot;, a.timestamp())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">year &#x3D; 2017
-month &#x3D; 11
-hour &#x3D; 23
-minute &#x3D; 55
-timestamp &#x3D; 1511884559.34238<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="datetime-timedelta"><a href="#datetime-timedelta" class="headerlink" title="datetime.timedelta"></a>datetime.timedelta</h2><p>timedelta 可以用来做 两个日期和时间 之间的计算</p>
-<h3 id="dates-和-times-的差值"><a href="#dates-和-times-的差值" class="headerlink" title="dates 和 times 的差值"></a>dates 和 times 的差值</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import datetime, date
-
-t1 &#x3D; date(year &#x3D; 2018, month &#x3D; 7, day &#x3D; 12)
-t2 &#x3D; date(year &#x3D; 2017, month &#x3D; 12, day &#x3D; 23)
-t3 &#x3D; t1 - t2
-print(&quot;t3 &#x3D;&quot;, t3)
-
-t4 &#x3D; datetime(year &#x3D; 2018, month &#x3D; 7, day &#x3D; 12, hour &#x3D; 7, minute &#x3D; 9, second &#x3D; 33)
-t5 &#x3D; datetime(year &#x3D; 2019, month &#x3D; 6, day &#x3D; 10, hour &#x3D; 5, minute &#x3D; 55, second &#x3D; 13)
-t6 &#x3D; t4 - t5
-print(&quot;t6 &#x3D;&quot;, t6)
-
-print(&quot;type of t3 &#x3D;&quot;, type(t3))
-print(&quot;type of t6 &#x3D;&quot;, type(t6))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">t3 &#x3D; 201 days, 0:00:00
-t6 &#x3D; -333 days, 1:14:20
-type of t3 &#x3D; &lt;class &#39;datetime.timedelta&#39;&gt;
-type of t6 &#x3D; &lt;class &#39;datetime.timedelta&#39;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意，t3 和 t6 是</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;class &#39;datetime.timedelta&#39;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="两个-timedelta-对象的差值"><a href="#两个-timedelta-对象的差值" class="headerlink" title="两个 timedelta 对象的差值"></a>两个 timedelta 对象的差值</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import timedelta
-
-t1 &#x3D; timedelta(weeks &#x3D; 2, days &#x3D; 5, hours &#x3D; 1, seconds &#x3D; 33)
-t2 &#x3D; timedelta(days &#x3D; 4, hours &#x3D; 11, minutes &#x3D; 4, seconds &#x3D; 54)
-t3 &#x3D; t1 - t2
-
-print(&quot;t3 &#x3D;&quot;, t3)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">t3 &#x3D; 14 days, 13:55:39<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="timedelta-对象可以为负值"><a href="#timedelta-对象可以为负值" class="headerlink" title="timedelta 对象可以为负值"></a>timedelta 对象可以为负值</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import timedelta
-
-t1 &#x3D; timedelta(seconds &#x3D; 33)
-t2 &#x3D; timedelta(seconds &#x3D; 54)
-t3 &#x3D; t1 - t2
-
-print(&quot;t3 &#x3D;&quot;, t3)
-print(&quot;t3 &#x3D;&quot;, abs(t3))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">t3 &#x3D; -1 day, 23:59:39
-t3 &#x3D; 0:00:21<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="用秒数表示时间间隔"><a href="#用秒数表示时间间隔" class="headerlink" title="用秒数表示时间间隔"></a>用秒数表示时间间隔</h3><p>我们可以用 <code>total_seconds()</code> 把 <code>timedelta</code> 对象表示成秒数</p>
-<pre class="line-numbers language-none"><code class="language-none">from datetime import timedelta
-
-t &#x3D; timedelta(days &#x3D; 5, hours &#x3D; 1, seconds &#x3D; 33, microseconds &#x3D; 233423)
-print(&quot;total seconds &#x3D;&quot;, t.total_seconds())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">total seconds &#x3D; 435633.233423<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>timedelta</code> 对象之间也支持 <code>+</code> 运算符。<code>timedelta</code> 对象和整型和浮点型数之间也可以使用 乘法 和 除法。</p>
-<h2 id="python-格式化日期和时间"><a href="#python-格式化日期和时间" class="headerlink" title="python 格式化日期和时间"></a>python 格式化日期和时间</h2><p>在 python 里我们一般可以用 <code>strftime()</code> 和 <code>strptime()</code> 方法来处理格式化数据问题。</p>
-<h3 id="strftime-把-datetime-对象转化为-string"><a href="#strftime-把-datetime-对象转化为-string" class="headerlink" title="strftime() - 把 datetime 对象转化为 string"></a>strftime() - 把 datetime 对象转化为 string</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import datetime
-
-# current date and time
-now &#x3D; datetime.now()
-
-t &#x3D; now.strftime(&quot;%H:%M:%S&quot;)
-print(&quot;time:&quot;, t)
-
-s1 &#x3D; now.strftime(&quot;%m&#x2F;%d&#x2F;%Y, %H:%M:%S&quot;)
-# mm&#x2F;dd&#x2F;YY H:M:S format
-print(&quot;s1:&quot;, s1)
-
-s2 &#x3D; now.strftime(&quot;%d&#x2F;%m&#x2F;%Y, %H:%M:%S&quot;)
-# dd&#x2F;mm&#x2F;YY H:M:S format
-print(&quot;s2:&quot;, s2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">time: 09:16:25
-s1: 03&#x2F;31&#x2F;2019, 09:16:25
-s2: 31&#x2F;03&#x2F;2019, 09:16:25<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>这里的 <code>%Y %m %d %H</code> 就是格式化的代码。 <code>strftime()</code> 方法接受一个或多个格式化代码，返回一个格式化后的字符串。</p>
-<pre class="line-numbers language-none"><code class="language-none">%Y - year
-%m - month
-%d - day
-%H - hour
-%M - month
-%S - second<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="strptime-把-string-转化为-datetime-对象"><a href="#strptime-把-string-转化为-datetime-对象" class="headerlink" title="strptime() - 把 string 转化为 datetime 对象"></a>strptime() - 把 string 转化为 datetime 对象</h3><pre class="line-numbers language-none"><code class="language-none">from datetime import datetime
-
-date_string &#x3D; &quot;21 June, 2018&quot;
-print(&quot;date_string &#x3D;&quot;, date_string)
-
-date_object &#x3D; datetime.strptime(date_string, &quot;%d %B, %Y&quot;)
-print(&quot;date_object &#x3D;&quot;, date_object)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">date_string &#x3D; 21 June, 2018
-date_object &#x3D; 2018-06-21 00:00:00<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>strptime() 函数接收两个参数</p>
-<ol>
-<li>一个表示日期和时间的 string</li>
-<li>格式化代码</li>
-</ol>
-<h2 id="处理时区"><a href="#处理时区" class="headerlink" title="处理时区"></a>处理时区</h2><p>python 更推荐使用第三方库 <code>pytZ</code> 类库来处理时区问题</p>
-<pre class="line-numbers language-none"><code class="language-none">from datetime import datetime
-import pytz
-
-local &#x3D; datetime.now()
-print(&quot;Local:&quot;, local.strftime(&quot;%m&#x2F;%d&#x2F;%Y, %H:%M:%S&quot;))
-
-
-tz_NY &#x3D; pytz.timezone(&#39;America&#x2F;New_York&#39;) 
-datetime_NY &#x3D; datetime.now(tz_NY)
-print(&quot;NY:&quot;, datetime_NY.strftime(&quot;%m&#x2F;%d&#x2F;%Y, %H:%M:%S&quot;))
-
-tz_London &#x3D; pytz.timezone(&#39;Europe&#x2F;London&#39;)
-datetime_London &#x3D; datetime.now(tz_London)
-print(&quot;London:&quot;, datetime_London.strftime(&quot;%m&#x2F;%d&#x2F;%Y, %H:%M:%S&quot;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印输出</p>
-<pre class="line-numbers language-none"><code class="language-none">Local: 03&#x2F;31&#x2F;2019, 09:37:37
-NY: 03&#x2F;30&#x2F;2019, 21:37:37
-London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -652,7 +448,7 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://love.wcmoon.com/2019/03/29/python-de-datetime-mo-kuai/">http://love.wcmoon.com/2019/03/29/python-de-datetime-mo-kuai/</a>
+                    <a href="http://love.wcmoon.com/2020/08/16/leetcode-cn-2-liang-shu-xiang-jia/">http://love.wcmoon.com/2020/08/16/leetcode-cn-2-liang-shu-xiang-jia/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -690,12 +486,12 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
-                                <a href="/tags/date-time/">
-                                    <span class="chip bg-color">date-time</span>
+                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
                                 </a>
                             
                         </div>
@@ -871,12 +667,12 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/16/leetcode-cn-2-liang-shu-xiang-jia/">
+                <a href="/2021/02/13/http-zhuang-tai-ma-yi/">
                     <div class="card-image">
                         
-                        <img src="https://blog-cdn.wcmoon.com/algorithm.jpg" class="responsive-img" alt="leetcode-cn 2.两数相加">
+                        <img src="https://blog-cdn.wcmoon.com/http.jpg" class="responsive-img" alt="HTTP状态码（一）">
                         
-                        <span class="card-title">leetcode-cn 2.两数相加</span>
+                        <span class="card-title">HTTP状态码（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -887,14 +683,14 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -904,12 +700,8 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="chip bg-color">链表</span>
+                    <a href="/tags/http/">
+                        <span class="chip bg-color">http</span>
                     </a>
                     
                 </div>
@@ -923,12 +715,12 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/02/04/xin-nian-kuai-le/">
+                <a href="/2019/03/29/python-de-datetime-mo-kuai/">
                     <div class="card-image">
                         
-                        <img src="https://blog-cdn.wcmoon.com/cup.jpg" class="responsive-img" alt="新年快乐">
+                        <img src="https://blog-cdn.wcmoon.com/python.jpg" class="responsive-img" alt="python 的 datetime 模块">
                         
-                        <span class="card-title">新年快乐</span>
+                        <span class="card-title">python 的 datetime 模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -939,14 +731,14 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-02-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%97%E6%AD%8C%E5%B7%B2%E6%AD%BB/" class="post-category">
-                                    诗歌已死
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -956,8 +748,12 @@ London: 03&#x2F;31&#x2F;2019, 02:37:37<span aria-hidden="true" class="line-numbe
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AF%97%E6%AD%8C%E5%B7%B2%E6%AD%BB/">
-                        <span class="chip bg-color">诗歌已死</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/date-time/">
+                        <span class="chip bg-color">date-time</span>
                     </a>
                     
                 </div>
