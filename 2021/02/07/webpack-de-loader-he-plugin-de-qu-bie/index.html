@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode-cn 109.有序链表转换二叉搜索树, 十平米">
+    <meta name="keywords" content="webpack 的 loader 和 plugin 的区别, 十平米">
     <meta name="description" content="够了，够了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>leetcode-cn 109.有序链表转换二叉搜索树 | 十平米</title>
+    <title>webpack 的 loader 和 plugin 的区别 | 十平米</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-cdn.wcmoon.com/algorithm.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">leetcode-cn 109.有序链表转换二叉搜索树</h1>
+                    <h1 class="description center-align post-title">webpack 的 loader 和 plugin 的区别</h1>
                 </div>
             </div>
         </div>
@@ -346,12 +346,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="chip bg-color">平衡二叉树</span>
+                            <a href="/tags/webpack/">
+                                <span class="chip bg-color">webpack</span>
                             </a>
                         
                     </div>
@@ -362,8 +358,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -375,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-19
+                    2021-02-07
                 </div>
                 
 
@@ -399,34 +395,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。<br>本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>给定的有序链表： [-10, -3, 0, 5, 9],</p>
-<p>一个可能的答案是：[0, -3, 9, -10, null, 5], 它可以表示下面这个高度平衡二叉搜索树：</p>
-<pre class="line-numbers language-none"><code class="language-none">     0
-    &#x2F; \
-  -3   9
-  &#x2F;   &#x2F;
--10  5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这题思路还是很明确的，要保证平衡二叉树，最方便的方式就是保持根节点左右两侧节点数量相同或者相差不超过 1，以此规律递归处理<br>所以问题就转化成了，找到链表的中位节点，然后将两边的节点做重复处理</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">sortedListToBST</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> TreeNode<span class="token punctuation">:</span>
-        <span class="token keyword">def</span> <span class="token function">find_mid</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            slow <span class="token operator">=</span> fast <span class="token operator">=</span> left
-            <span class="token keyword">while</span> fast <span class="token operator">!=</span> right <span class="token keyword">and</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span> <span class="token operator">!=</span> right<span class="token punctuation">:</span>
-                slow <span class="token operator">=</span> slow<span class="token punctuation">.</span><span class="token builtin">next</span>
-                fast <span class="token operator">=</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">.</span><span class="token builtin">next</span>
-            <span class="token keyword">return</span> slow
+                <h3 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h3><p>它是一个转换器，将A文件进行编译成B文件，比如：将A.less转换为A.css，单纯的文件转换过程。</p>
+<h3 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h3><p>是一个扩展器，它丰富了webpack本身，针对是loader结束后，webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，执行广泛的任务</p>
 
-        <span class="token keyword">def</span> <span class="token function">build_tree</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> left <span class="token operator">==</span> right<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">None</span>
-            mid <span class="token operator">=</span> find_mid<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
-            root <span class="token operator">=</span> TreeNode<span class="token punctuation">(</span>mid<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
-            root<span class="token punctuation">.</span>left <span class="token operator">=</span> build_tree<span class="token punctuation">(</span>left<span class="token punctuation">,</span> mid<span class="token punctuation">)</span>
-            root<span class="token punctuation">.</span>right <span class="token operator">=</span> build_tree<span class="token punctuation">(</span>mid<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> root
-
-        <span class="token keyword">return</span> build_tree<span class="token punctuation">(</span>head<span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -452,7 +423,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://love.wcmoon.com/2020/08/19/leetcode-cn-109-you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu/">http://love.wcmoon.com/2020/08/19/leetcode-cn-109-you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu/</a>
+                    <a href="http://love.wcmoon.com/2021/02/07/webpack-de-loader-he-plugin-de-qu-bie/">http://love.wcmoon.com/2021/02/07/webpack-de-loader-he-plugin-de-qu-bie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -490,12 +461,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                    <span class="chip bg-color">平衡二叉树</span>
+                                <a href="/tags/webpack/">
+                                    <span class="chip bg-color">webpack</span>
                                 </a>
                             
                         </div>
@@ -671,13 +638,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/02/07/webpack-de-loader-he-plugin-de-qu-bie/">
+                <a href="/2021/02/13/http-zhuang-tai-ma-yi/">
                     <div class="card-image">
                         
+                        <img src="https://blog-cdn.wcmoon.com/http.jpg" class="responsive-img" alt="HTTP状态码（一）">
                         
-                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="webpack 的 loader 和 plugin 的区别">
-                        
-                        <span class="card-title">webpack 的 loader 和 plugin 的区别</span>
+                        <span class="card-title">HTTP状态码（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -688,7 +654,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
                         </span>
                         <span class="publish-author">
                             
@@ -705,8 +671,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/webpack/">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/tags/http/">
+                        <span class="chip bg-color">http</span>
                     </a>
                     
                 </div>
@@ -720,12 +686,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/19/leetcode-cn-3-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/">
+                <a href="/2020/08/19/leetcode-cn-109-you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu/">
                     <div class="card-image">
                         
-                        <img src="https://blog-cdn.wcmoon.com/algorithm.jpg" class="responsive-img" alt="leetcode-cn 3.无重复字符的最长子串">
+                        <img src="https://blog-cdn.wcmoon.com/algorithm.jpg" class="responsive-img" alt="leetcode-cn 109.有序链表转换二叉搜索树">
                         
-                        <span class="card-title">leetcode-cn 3.无重复字符的最长子串</span>
+                        <span class="card-title">leetcode-cn 109.有序链表转换二叉搜索树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -757,8 +723,8 @@
                         <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                        <span class="chip bg-color">平衡二叉树</span>
                     </a>
                     
                 </div>

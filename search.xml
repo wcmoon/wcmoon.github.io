@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>webpack 的 loader 和 plugin 的区别</title>
+      <link href="2021/02/07/webpack-de-loader-he-plugin-de-qu-bie/"/>
+      <url>2021/02/07/webpack-de-loader-he-plugin-de-qu-bie/</url>
+      
+        <content type="html"><![CDATA[<h3 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h3><p>它是一个转换器，将A文件进行编译成B文件，比如：将A.less转换为A.css，单纯的文件转换过程。</p><h3 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h3><p>是一个扩展器，它丰富了webpack本身，针对是loader结束后，webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，执行广泛的任务</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webpack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-cn 109.有序链表转换二叉搜索树</title>
       <link href="2020/08/19/leetcode-cn-109-you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu/"/>
       <url>2020/08/19/leetcode-cn-109-you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu/</url>
