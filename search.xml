@@ -29,6 +29,33 @@
     
     
     <entry>
+      <title>leetcode-cn 109.有序链表转换二叉搜索树</title>
+      <link href="2020/08/19/leetcode-cn-109-you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu/"/>
+      <url>2020/08/19/leetcode-cn-109-you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。<br>本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>给定的有序链表： [-10, -3, 0, 5, 9],</p><p>一个可能的答案是：[0, -3, 9, -10, null, 5], 它可以表示下面这个高度平衡二叉搜索树：</p><pre class="line-numbers language-none"><code class="language-none">     0    &#x2F; \  -3   9  &#x2F;   &#x2F;-10  5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这题思路还是很明确的，要保证平衡二叉树，最方便的方式就是保持根节点左右两侧节点数量相同或者相差不超过 1，以此规律递归处理<br>所以问题就转化成了，找到链表的中位节点，然后将两边的节点做重复处理</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">sortedListToBST</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> TreeNode<span class="token punctuation">:</span>        <span class="token keyword">def</span> <span class="token function">find_mid</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>            slow <span class="token operator">=</span> fast <span class="token operator">=</span> left            <span class="token keyword">while</span> fast <span class="token operator">!=</span> right <span class="token keyword">and</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span> <span class="token operator">!=</span> right<span class="token punctuation">:</span>                slow <span class="token operator">=</span> slow<span class="token punctuation">.</span><span class="token builtin">next</span>                fast <span class="token operator">=</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">.</span><span class="token builtin">next</span>            <span class="token keyword">return</span> slow        <span class="token keyword">def</span> <span class="token function">build_tree</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> left <span class="token operator">==</span> right<span class="token punctuation">:</span>                <span class="token keyword">return</span> <span class="token boolean">None</span>            mid <span class="token operator">=</span> find_mid<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>            root <span class="token operator">=</span> TreeNode<span class="token punctuation">(</span>mid<span class="token punctuation">.</span>val<span class="token punctuation">)</span>            root<span class="token punctuation">.</span>left <span class="token operator">=</span> build_tree<span class="token punctuation">(</span>left<span class="token punctuation">,</span> mid<span class="token punctuation">)</span>            root<span class="token punctuation">.</span>right <span class="token operator">=</span> build_tree<span class="token punctuation">(</span>mid<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span>            <span class="token keyword">return</span> root        <span class="token keyword">return</span> build_tree<span class="token punctuation">(</span>head<span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 平衡二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-cn 3.无重复字符的最长子串</title>
       <link href="2020/08/19/leetcode-cn-3-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/"/>
       <url>2020/08/19/leetcode-cn-3-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/</url>
