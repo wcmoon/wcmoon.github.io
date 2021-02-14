@@ -29,6 +29,56 @@
     
     
     <entry>
+      <title>vim 配置记录</title>
+      <link href="2021/02/07/vim-pei-zhi-ji-lu/"/>
+      <url>2021/02/07/vim-pei-zhi-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<p>vim 配置记录</p><pre class="line-numbers language-none"><code class="language-none">set nuset culset aisyntax onset mouse&#x3D;aset selection&#x3D;exclusiveset nocompatible              &quot; be iMproved, requiredfiletype off                  &quot; required&quot; set the runtime path to include Vundle and initializeset rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;vundle.vimcall vundle#begin()&quot; alternatively, pass a path where Vundle should install plugins&quot;call vundle#begin(&#39;~&#x2F;some&#x2F;path&#x2F;here&#39;)&quot; let Vundle manage Vundle, requiredPlugin &#39;VundleVim&#x2F;Vundle.vim&#39;&quot; The following are examples of different formats supported.&quot; Keep Plugin commands between vundle#begin&#x2F;end.&quot; plugin on GitHub repoPlugin &#39;tpope&#x2F;vim-fugitive&#39;&quot; plugin from http:&#x2F;&#x2F;vim-scripts.org&#x2F;vim&#x2F;scripts.html&quot; Plugin &#39;L9&#39;&quot; Git plugin not hosted on GitHub&quot; git repos on your local machine (i.e. when working on your own plugin)&quot; The sparkup vim script is in a subdirectory of this repo called vim.&quot; Pass the path to set the runtimepath properly.Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;&quot; Install L9 and avoid a Naming conflict if you&#39;ve already installed a&quot; different version somewhere else.&quot; Plugin &#39;ascenator&#x2F;L9&#39;, &#123;&#39;name&#39;: &#39;newL9&#39;&#125;Plugin &#39;scrooloose&#x2F;nerdtree&#39;&quot; All of your Plugins must be added before the following linePlugin &#39;mattn&#x2F;emmet-vim&#39;Plugin &#39;hail2u&#x2F;vim-css3-syntax&#39;Plugin &#39;groenewege&#x2F;vim-less&#39;Plugin &#39;Raimondi&#x2F;delimitMate&#39;Plugin &#39;scrooloose&#x2F;syntastic&#39;Plugin &#39;Shougo&#x2F;neco-vim&#39;Plugin &#39;majutsushi&#x2F;tagbar&#39;Plugin &#39;jiangmiao&#x2F;auto-pairs&#39;Plugin &#39;vim-airline&#x2F;vim-airline&#39;Plugin &#39;c.vim&#39;Plugin &#39;gorodinskiy&#x2F;vim-coloresque&#39;Plugin &#39;sheerun&#x2F;vim-polyglot&#39;Plugin &#39;artur-shaik&#x2F;vim-javacomplete2&#39;Plugin &#39;pangloss&#x2F;vim-javascript&#39;Plugin &#39;alvan&#x2F;vim-closetag&#39;Plugin &#39;Yggdroot&#x2F;indentLine&#39;Plugin &#39;maksimr&#x2F;vim-jsbeautify&#39;Plugin &#39;othree&#x2F;html5.vim&#39;Plugin &#39;othree&#x2F;javascript-libraries-syntax.vim&#39;Plugin &#39;sickill&#x2F;vim-monokai&#39;Plugin &#39;Shougo&#x2F;neocomplete.vim&#39;Plugin &#39;Shougo&#x2F;neosnippet&#39;Plugin &#39;Shougo&#x2F;neosnippet-snippets&#39;Plugin &#39;ervandew&#x2F;supertab&#39;Plugin &#39;OmniCppComplete&#39; Plugin &#39;othree&#x2F;jspc.vim&#39;Plugin &#39;1995eaton&#x2F;vim-better-javascript-completion&#39;Plugin &#39;tomasr&#x2F;molokai&#39; Plugin &#39;digitaltoad&#x2F;vim-pug&#39; Plugin &#39;dNitro&#x2F;vim-pug-complete&#39; Plugin &#39;itspriddle&#x2F;vim-jquery&#39;Plugin &#39;posva&#x2F;vim-vue&#39;Plugin &#39;myhere&#x2F;vim-nodejs-complete&#39;Plugin &#39;heavenshell&#x2F;vim-jsdoc&#39;Plugin &#39;isRuslan&#x2F;vim-es6&#39;Plugin &#39;leshill&#x2F;vim-json&#39;Plugin &#39;rhysd&#x2F;vim-clang-format&#39;Plugin &#39;geoffharcourt&#x2F;vim-matchit&#39;Plugin &#39;vim-scripts&#x2F;indentpython.vim&#39;Plugin &#39;jelera&#x2F;vim-javascript-syntax&#39;Plugin &#39;AutoComplPop&#39;Plugin &#39;shawncplus&#x2F;phpcomplete.vim&#39;Plugin &#39;mxw&#x2F;vim-jsx&#39;call vundle#end()            &quot; requiredfiletype plugin indent on    &quot; required&quot; To ignore plugin indent changes, instead use:&quot;filetype plugin on&quot;&quot; Brief help&quot; :PluginList       - lists configured plugins&quot; :PluginInstall    - installs plugins; append &#96;!&#96; to update or just :PluginUpdate&quot; :PluginSearch foo - searches for foo; append &#96;!&#96; to refresh local cache&quot; :PluginClean      - confirms removal of unused plugins; append &#96;!&#96; to auto-approve removal&quot;&quot; see :h vundle for more details or wiki for FAQ&quot; Put your non-Plugin stuff after this lineet selectmode&#x3D;mouse,keyset showmatchset tabstop&#x3D;4set shiftwidth&#x3D;4set expandtabinoremap jj &lt;Esc&gt;map &lt;F5&gt; :NERDTreeMirror&lt;CR&gt;map &lt;F5&gt; :NERDTreeToggle&lt;CR&gt;let NERDTreeShowHidden&#x3D;1let NERDTreeWinPos&#x3D;0function ShortTabLabel ()    let bufnrlist &#x3D; tabpagebuflist (v:lnum)    let label &#x3D; bufname (bufnrlist[tabpagewinnr (v:lnum) -1])    let filename &#x3D; fnamemodify (label, &#39;:t&#39;)    return filenameendfunctionset guitablabel&#x3D;%&#123;ShortTabLabel()&#125;inoremap &#39; &#39;&#39;&lt;ESC&gt;iinoremap &quot; &quot;&quot;&lt;ESC&gt;iinoremap ( ()&lt;ESC&gt;iinoremap [ []&lt;ESC&gt;iinoremap &#123; &#123;&lt;CR&gt;&#125;&lt;ESC&gt;Oinoremap &lt;C+k&gt; &lt;ESC&gt;la let g:pmenu_scheme &#x3D; &#39;dark&#39;let g:snipMate &#x3D; &#123;&#125;let g:snipMate.scope_aliases &#x3D; &#123;&#125;let g:javascript_scope_aliases &#x3D; &#39;javascript,javascript-react,javascript-es6-react&#39;let g:snipMate.scope_aliases[&#39;javascript&#39;] &#x3D; g:javascript_scope_aliaseslet g:snipMate.scope_aliases[&#39;javascript.jsx&#39;] &#x3D; g:javascript_scope_aliaseslet g:tsuquyomi_javascript_support &#x3D; 1let g:tsuquyomi_completion_detail &#x3D; 0let g:tsuquyomi_completion_preview &#x3D; 0let g:tsuquyomi_auto_open &#x3D; 0&quot; Jedi 配置let g:jedi#auto_initialization &#x3D; 1let g:jedi#popup_on_dot &#x3D; 1let g:jedi#popup_select_first &#x3D; 0let g:jedi#show_call_signatures &#x3D; &quot;1&quot;autocmd FileType python setlocal completeopt-&#x3D;previewset completeopt&#x3D;preview,menuset completeopt&#x3D;longest,menuset autowrite<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tmux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tmux 配置</title>
+      <link href="2021/02/07/tmux-pei-zhi/"/>
+      <url>2021/02/07/tmux-pei-zhi/</url>
+      
+        <content type="html"><![CDATA[<p>个人使用的 tmux 习惯配置。</p><pre class="line-numbers language-none"><code class="language-none"># ~&#x2F;.tmux.conf# Send prefixset-option -g prefix C-aunbind-key C-abind-key C-a send-prefix# Use shift-arrow keys to switch panesbind -n S-Left select-pane -Lbind -n S-Right select-pane -Rbind -n S-Up select-pane -Ubind -n S-Down select-pane -D# Set easier window split keysbind-key v split-window -hbind-key h split-window -v# Easy config reloadbind-key r source-file ~&#x2F;.tmux.conf \; display-message &quot;tmux.conf reloaded&quot;# Display colorset -g default-terminal &quot;screen-256color&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tmux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>webpack 的 loader 和 plugin 的区别</title>
       <link href="2021/02/07/webpack-de-loader-he-plugin-de-qu-bie/"/>
       <url>2021/02/07/webpack-de-loader-he-plugin-de-qu-bie/</url>
