@@ -5,6 +5,7 @@ tags:
 - webpack
 categories:
 - 前端
+img: https://blog-cdn.wcmoon.com/http.jpg
 ---
 
 ### loader
