@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="新年快乐, 十平米">
+    <meta name="keywords" content="HTTP状态码（一）, 十平米">
     <meta name="description" content="够了，够了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>新年快乐 | 十平米</title>
+    <title>HTTP状态码（一） | 十平米</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-cdn.wcmoon.com/cup.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">新年快乐</h1>
+                    <h1 class="description center-align post-title">HTTP状态码（一）</h1>
                 </div>
             </div>
         </div>
@@ -346,8 +346,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%97%E6%AD%8C%E5%B7%B2%E6%AD%BB/">
-                                <span class="chip bg-color">诗歌已死</span>
+                            <a href="/tags/http/">
+                                <span class="chip bg-color">http</span>
                             </a>
                         
                     </div>
@@ -358,8 +358,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AF%97%E6%AD%8C%E5%B7%B2%E6%AD%BB/" class="post-category">
-                                诗歌已死
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -371,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-11
+                    2021-02-13
                 </div>
                 
 
@@ -395,22 +395,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>有一种孤独叫热闹孤独</p>
-<p>其实越是开开心心的人群</p>
-<p>越能让真正孤独的人感觉到寂寞吧</p>
-<p>新的一年</p>
-<p>却不知道了自己希望被祝福什么</p>
-<p>祝了一个朋友新年快乐</p>
-<p>希望能一直是朋友</p>
-<p>收到一个朋友的祝福</p>
-<p>希望她新年能跟我更好吧</p>
-<p>不过人生好像本来就是这样的</p>
-<p>该开始恢复这两年</p>
-<p>因为有女朋友而忘却的一个人生活的能力</p>
-<p>该重新体会孤独的滋味</p>
-<p>然后重新学会享受孤独和真正的成长</p>
-<p>愿世界快乐</p>
-<p>愿孤独也能带来能量</p>
+                <h2 id="301-和-302-有什么区别？"><a href="#301-和-302-有什么区别？" class="headerlink" title="301 和 302 有什么区别？"></a>301 和 302 有什么区别？</h2><p>面试的时候经常会有这样的问题：”状态码 301 和 302 有什么区别？”<br>网上可以找到最简洁的答案是，301 是暂时的重定向，302 是永久的重定向。<br>但是翻阅了 MDN 之后发现，事情绝对没有这么简单。事情还得从另外的几个状态码说起。</p>
+<h2 id="301-和-308"><a href="#301-和-308" class="headerlink" title="301 和 308"></a>301 和 308</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/308">MDN</a></p>
+<p>首先 301 和 308 都是永久重定向。所谓永久重定向，意味着请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个URI之一。如果可能，拥有链接编辑功能的客户端应当自动把请求的地址修改为从服务器反馈回来的地址。除非额外指定，否则这个响应也是可缓存的。</p>
+<p>但是两者还是有区别的，尽管标准要求浏览器在收到该响应并进行重定向时不应该修改 http method 和 body，但是有一些浏览器可能会有问题。所以最好是在应对GET 或 HEAD 方法时使用301，其他情况使用308 来替代301。</p>
+<h2 id="302-和-307"><a href="#302-和-307" class="headerlink" title="302 和 307"></a>302 和 307</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/302">MDN</a></p>
+<p>302、307 这一对和 301、308 一对的关系很像。首先，两者都是暂时重定向，表明请求的资源被暂时的移动到了由Location 头部指定的 URL 上。浏览器会重定向到这个URL， 但是搜索引擎不会对该资源的链接进行更新。</p>
+<p>因为历史原因，不是所有的用户代理都会保证重定向不修改 http method 和 body，所以推荐仅在响应 GET 或 HEAD 方法时采用 302 状态码，而在其他时候使用 307 Temporary Redirect 来替代，因为在这些场景下方法变换是明确禁止的。</p>
+<h2 id="怎么选择状态码"><a href="#怎么选择状态码" class="headerlink" title="怎么选择状态码"></a>怎么选择状态码</h2><p>一张图说明如下</p>
+<p><img src="https://blog-cdn.wcmoon.com/3xx-code.png" alt="choose code"></p>
 
                 
             </div>
@@ -437,7 +430,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://love.wcmoon.com/2021/02/11/xin-nian-kuai-le/">http://love.wcmoon.com/2021/02/11/xin-nian-kuai-le/</a>
+                    <a href="http://love.wcmoon.com/2021/02/13/http-zhuang-tai-ma-yi/">http://love.wcmoon.com/2021/02/13/http-zhuang-tai-ma-yi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -475,8 +468,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%97%E6%AD%8C%E5%B7%B2%E6%AD%BB/">
-                                    <span class="chip bg-color">诗歌已死</span>
+                                <a href="/tags/http/">
+                                    <span class="chip bg-color">http</span>
                                 </a>
                             
                         </div>
@@ -648,9 +641,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/02/13/http-zhuang-tai-ma-yi/">
                     <div class="card-image">
@@ -668,9 +662,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -683,6 +677,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -698,7 +693,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/02/11/xin-nian-kuai-le/">
@@ -731,7 +726,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
