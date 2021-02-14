@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+// todo 支持文件夹上传
+const fs = require('fs');
+const path = require('path');
+const upyun = require('upyun');
+const argv = require('yargs')
+    .alias('f', 'file') // 传文件 ypload -f|--file <filename>
+    .alias('d', 'dir') // 传文件夹 ypload -d|--dir <dirname>
+    // 默认 ./themes/hexo-theme-matery/source/medias/featureimages
+    .argv; // 解析好的参数对象
+const service = new upyun.Service('wcmoon-blog-image', process.env.YP_USER, process.env.YP_PASSWD);
+const client = new upyun.Client(service);
+
+const fileName = argv.f;
+const filePath = argv.d || './themes/hexo-theme-matery/source/medias/featureimages/';
+const remotePath = argv.d || '';
+
+if (fileName) {
+    // 优先处理 -f｜--file 参数
+    const file = fs.readFileSync(path.resolve(filePath, fileName));
+    client.putFile(path.join('/', remotePath, fileName), file).then((res) => {
+        console.log(res);
+    });
+}
+
+
