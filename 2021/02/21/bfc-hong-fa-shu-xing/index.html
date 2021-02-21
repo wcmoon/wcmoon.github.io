@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="HTTP状态码（一）, 十平米">
+    <meta name="keywords" content="BFC 触发属性, 十平米">
     <meta name="description" content="够了，够了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HTTP状态码（一） | 十平米</title>
+    <title>BFC 触发属性 | 十平米</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -230,7 +230,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">HTTP状态码（一）</h1>
+                    <h1 class="description center-align post-title">BFC 触发属性</h1>
                 </div>
             </div>
         </div>
@@ -346,8 +346,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/http/">
-                                <span class="chip bg-color">http</span>
+                            <a href="/tags/BFC/">
+                                <span class="chip bg-color">BFC</span>
                             </a>
                         
                     </div>
@@ -358,8 +358,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/css/" class="post-category">
+                                css
                             </a>
                         
                     </div>
@@ -371,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-13
+                    2021-02-21
                 </div>
                 
 
@@ -395,15 +395,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="301-和-302-有什么区别？"><a href="#301-和-302-有什么区别？" class="headerlink" title="301 和 302 有什么区别？"></a>301 和 302 有什么区别？</h2><p>面试的时候经常会有这样的问题：”状态码 301 和 302 有什么区别？”<br>网上可以找到最简洁的答案是，301 是暂时的重定向，302 是永久的重定向。<br>但是翻阅了 MDN 之后发现，事情绝对没有这么简单。事情还得从另外的几个状态码说起。</p>
-<h2 id="301-和-308"><a href="#301-和-308" class="headerlink" title="301 和 308"></a>301 和 308</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/308">MDN</a></p>
-<p>首先 301 和 308 都是永久重定向。所谓永久重定向，意味着请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个URI之一。如果可能，拥有链接编辑功能的客户端应当自动把请求的地址修改为从服务器反馈回来的地址。除非额外指定，否则这个响应也是可缓存的。</p>
-<p>但是两者还是有区别的，尽管标准要求浏览器在收到该响应并进行重定向时不应该修改 http method 和 body，但是有一些浏览器可能会有问题。所以最好是在应对GET 或 HEAD 方法时使用301，其他情况使用308 来替代301。</p>
-<h2 id="302-和-307"><a href="#302-和-307" class="headerlink" title="302 和 307"></a>302 和 307</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/302">MDN</a></p>
-<p>302、307 这一对和 301、308 一对的关系很像。首先，两者都是暂时重定向，表明请求的资源被暂时的移动到了由Location 头部指定的 URL 上。浏览器会重定向到这个URL， 但是搜索引擎不会对该资源的链接进行更新。</p>
-<p>因为历史原因，不是所有的用户代理都会保证重定向不修改 http method 和 body，所以推荐仅在响应 GET 或 HEAD 方法时采用 302 状态码，而在其他时候使用 307 Temporary Redirect 来替代，因为在这些场景下方法变换是明确禁止的。</p>
-<h2 id="怎么选择状态码"><a href="#怎么选择状态码" class="headerlink" title="怎么选择状态码"></a>怎么选择状态码</h2><p>一张图说明如下</p>
-<p><img src="https://blog-cdn.wcmoon.com/3xx-code.png" alt="choose code"></p>
+                <p>只要元素满足下面任一条件即可触发 BFC 特性：</p>
+<p>body 根元素<br>浮动元素：float 除 none 以外的值<br>绝对定位元素：position (absolute、fixed)<br>display 为 inline-block、table-cells、flex<br>overflow 除了 visible 以外的值 (hidden、auto、scroll)</p>
 
                 
             </div>
@@ -430,7 +423,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://love.wcmoon.com/2021/02/13/http-zhuang-tai-ma-yi/">http://love.wcmoon.com/2021/02/13/http-zhuang-tai-ma-yi/</a>
+                    <a href="http://love.wcmoon.com/2021/02/21/bfc-hong-fa-shu-xing/">http://love.wcmoon.com/2021/02/21/bfc-hong-fa-shu-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -468,8 +461,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/http/">
-                                    <span class="chip bg-color">http</span>
+                                <a href="/tags/BFC/">
+                                    <span class="chip bg-color">BFC</span>
                                 </a>
                             
                         </div>
@@ -641,9 +634,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/02/21/bfc-hong-fa-shu-xing/">
                     <div class="card-image">
@@ -660,9 +654,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -675,6 +669,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -693,12 +688,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/07/vim-pei-zhi-ji-lu/">
+                <a href="/2021/02/13/http-zhuang-tai-ma-yi/">
                     <div class="card-image">
                         
-                        <img src="https://blog-cdn.wcmoon.com/tool.jpg" class="responsive-img" alt="vim 配置记录">
+                        <img src="https://blog-cdn.wcmoon.com/http.jpg" class="responsive-img" alt="HTTP状态码（一）">
                         
-                        <span class="card-title">vim 配置记录</span>
+                        <span class="card-title">HTTP状态码（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -709,14 +704,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    工具
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -726,8 +721,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tmux/">
-                        <span class="chip bg-color">tmux</span>
+                    <a href="/tags/http/">
+                        <span class="chip bg-color">http</span>
                     </a>
                     
                 </div>
